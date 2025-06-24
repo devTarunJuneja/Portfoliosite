@@ -5,7 +5,7 @@ import { Briefcase } from 'lucide-react';
 const experiences = [
   {
     title: 'Full-Stack Intern',
-    company: 'Meander Technologies',
+    company: 'Hoping Minds',
     location: 'Mohali, India',
     duration: 'Jan 2025 – present',
     details: [
