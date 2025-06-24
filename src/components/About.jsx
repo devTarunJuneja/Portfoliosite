@@ -1,6 +1,8 @@
 // src/components/About.jsx
 import React from 'react'
 import { User } from 'lucide-react'
+import profileImg from '../assets/photopic.jpg';
+
 
 export default function About() {
   return (
@@ -25,7 +27,7 @@ export default function About() {
         {/* Left: Image */}
         <div className="w-[360px] h-[500px] rounded-[24px] overflow-hidden shadow-lg mb-[32px] md:mb-0 md:mr-[80px] flex-shrink-0">
           <img
-            src="/src/assets/photopic.jpg"
+            src={profileImg} 
             alt="My Photo"
             className="w-full h-full object-cover"
           />
