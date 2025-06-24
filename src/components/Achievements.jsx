@@ -5,7 +5,7 @@ import { FaMedal, FaTrophy, FaGlobe, FaLaptopCode } from 'react-icons/fa';
 import hackvisionvaultImg from '../assets/hackvisionvault.jpg';
 import hackmorImg from '../assets/hackmor.jpg';
 import hacktuImg from '../assets/hacktu22.jpg';
-import hackvsitImg from '../assets/DSC_8038.jpg';
+import hackvsitImg from '../assets/hackvsit.jpg';
 
 const hackathons = [
   {
