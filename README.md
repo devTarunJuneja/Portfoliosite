@@ -33,6 +33,4 @@
 - Downloadable resume button.
 - Placeholder for contact form integration.
 
-## Reference
-Modeled after layout and structure similar to https://nishumital3103.github.io/nishu_portfolio.github.io/ citeturn0view0 and uses details from Tarun Juneja's resume fileciteturn2file0.
-"# myportfoliosite" 
+"# Portfoliosite" 
