@@ -12,7 +12,7 @@ const hackathons = [
     icon: <FaMedal className="text-yellow-400 w-6 h-6" />,
     title: '🥇 1st Place – HackVisionVault Hackathon',
     description:
-      '🏆 Champion team out of 128 participants at HackVisionVault 2K25! Developed EchoHealth, an AI-powered voice diagnostic platform leveraging acoustic feature extraction and LLM integration to identify potential vocal disorders. 👨‍💻 Our team delivered a flawless live demo, impressed judges with clarity and innovation, and stood out for the idea\'s social impact in rural healthcare. 🎤 Confident Q&A handling and smooth execution secured us the top spot at Maharishi Markandeshwar University.',
+      '🏆 Champion team out of 128 at HackVisionVault 2K25! Built EchoHealth – an AI voice diagnostic platform using acoustic features and LLMs to detect vocal disorders. Delivered a smooth live demo, nailed the Q&A, and stood out for rural healthcare impact at Maharishi Markandeshwar University.',
     image: hackvisionvaultImg,
     alt: 'HackVisionVault first place photo',
   },
@@ -20,7 +20,7 @@ const hackathons = [
     icon: <FaTrophy className="text-indigo-500 w-6 h-6" />,
     title: '🥈 2nd Place – HackMOR Hackathon Exhibition',
     description:
-      '🧠 Presented SwapSense, an AI-powered deepfake detection tool designed for media authentication. The project used computer vision and transformer models to detect facial manipulation. 📸 Demonstrated a full-stack application to the AICTE Chairman and Google representatives, earning national-level recognition. SwapSense was chosen among 200+ entries for its originality, UI/UX quality, and real-world applicability in tackling misinformation. 🚀 The exhibition was held at Manav Rachna University',
+      '🧠 Presented SwapSense – an AI deepfake detection tool using computer vision and transformers. Showcased to AICTE Chairman & Google reps at Manav Rachna University. 🎯 Selected from 200+ entries for originality, UI/UX, and real-world impact against misinformation.',
     image: hackmorImg,
     alt: 'HackMOR exhibition photo',
   },
@@ -28,7 +28,7 @@ const hackathons = [
     icon: <FaGlobe className="text-green-500 w-6 h-6" />,
     title: '🌐 Top 10 – HackTU 6.0 (MLH)',
     description:
-      '🌍 Finalist at HackTU 6.0, an MLH-powered 36-hour international hackathon hosted at Graphic Era University. We built UrbanECO, an AI-enabled e-waste platform offering component reselling, project tutorials, and eco rewards. ♻️ Our team was the only one from Haryana to reach the finals, getting praise from GitHub, MongoDB, and Streamlit for the platform\'s relevance and scalability. 💡 Judges highlighted the seamless integration of AI. We proudly stood in the top 10 out of 200+ global teams.',
+      '🌍 Finalist at HackTU 6.0 (MLH) – built UrbanECO, an AI-powered e-waste platform with reselling, tutorials, and eco-rewards. ♻️ Only Haryana team in top 10 out of 200+ global entries. Praised by GitHub, MongoDB & Streamlit for innovation and scalability.',
     image: hacktuImg,
     alt: 'HackTU 6.0 finalist photo',
   },
@@ -36,7 +36,7 @@ const hackathons = [
     icon: <FaLaptopCode className="text-gray-500 w-6 h-6" />,
     title: '🏅 4th Place – HackVSIT 6.0',
     description:
-      '💻 Secured 4th place at HackVSIT 6.0 hosted by VIPS Delhi. We built Prompt2Code, an AI-powered code generation app using Gemini API to turn user prompts into full code snippets. The platform included history tracking, multiple pages, and a clean modern UI with Tailwind and React. ⌨️ Judges appreciated the deployment-ready MVP, intuitive design, and front-end polish. It was recognized for full-stack capabilities and productivity-enhancing potential under tight time constraints.',
+      '💻 4th place at HackVSIT 6.0 – built Prompt2Code, an AI code generator using Gemini API. Included multi-page UI, prompt history, and clean Tailwind-React design. ⌨️ Praised for full-stack delivery, polished UX, and deployment-ready execution under pressure.',
     image: hackvsitImg,
     alt: 'HackVSIT project photo',
   }
