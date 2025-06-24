@@ -7,7 +7,7 @@ const experiences = [
     title: 'Full-Stack Internship Trainee',
     company: 'Hoping Minds',
     location: 'Mohali, India',
-    duration: 'July 2025 – september 2024',
+    duration: 'July 2024 – September 2024',
     details: [
       'Built an Amazon-like e-commerce clone using HTML, CSS, and JavaScript.',
       'Gained foundational knowledge in HTML, CSS, JavaScript, and React.js.',
