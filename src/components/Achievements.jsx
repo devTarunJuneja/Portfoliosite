@@ -44,7 +44,7 @@ const hackathons = [
   },
   {
   icon: <FaLaptopCode className="text-red-500 w-6 h-6" />,
-  title: '🚀 Smart India Hackathon 2025 (Institute Level)',
+  title: '🚀 Smart India Hackathon 2024 (Institute Level)',
   description:
     '🚀 Selected by institute panel for Smart India Hackathon 2024 – proposed an AI-based solution targeting Deepfake video detction software. Among top shortlisted teams after internal evaluation at JMIETI Institute. 🌟 Recognized for innovation, relevance, and technical feasibility.',
   image: sihImg,
