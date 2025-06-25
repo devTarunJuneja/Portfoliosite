@@ -6,6 +6,8 @@ import hackvisionvaultImg from '../assets/hackvisionvault.jpg';
 import hackmorImg from '../assets/hackmor.jpg';
 import hacktuImg from '../assets/hacktu22.jpg';
 import hackvsitImg from '../assets/hackvsit.jpg';
+import sihImg from '../assets/sih.jpg';
+
 
 const hackathons = [
   {
@@ -39,7 +41,15 @@ const hackathons = [
       '💻 4th place at HackVSIT 6.0 – built Prompt2Code, an AI code generator using Gemini API. Included multi-page UI, prompt history, and clean Tailwind-React design. ⌨️ Praised for full-stack delivery, polished UX, and deployment-ready execution under pressure.',
     image: hackvsitImg,
     alt: 'HackVSIT project photo',
-  }
+  },
+  {
+  icon: <FaLaptopCode className="text-red-500 w-6 h-6" />,
+  title: '🚀 Smart India Hackathon 2025 (Institute Level)',
+  description:
+    '🚀 Selected by institute panel for Smart India Hackathon 2024 – proposed an AI-based solution targeting Deepfake video detction software. Among top shortlisted teams after internal evaluation at JMIETI Institute. 🌟 Recognized for innovation, relevance, and technical feasibility.',
+  image: sihImg,
+  alt: 'Smart India Hackathon institute-level selection',
+}
 ];
 
 const HackathonAchievements = () => {
