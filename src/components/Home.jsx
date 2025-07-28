@@ -22,9 +22,9 @@ export default function Home({ theme = 'light' }) {
 
   return (
     <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 overflow-hidden"
-    >
+ id="home"
+  className="relative w-screen min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 overflow-hidden"
+ >
       <CanvasNetworkBackground
         pointColor={pointColor}
         lineColor={lineColor}
@@ -37,7 +37,8 @@ export default function Home({ theme = 'light' }) {
       />
 
       {/* Foreground content */}
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between container mx-auto px-4 md:px-16">
+      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-screen-xl mx-auto px-2 sm:px-4 md:px-8 lg:px-16">
+
         {/* Left text */}
         <div className="mt-10 md:mt-0 md:w-1/2 text-center md:text-left">
           <p className="text-3xl md:text-5xl font-semibold text-[#1e293b] dark:text-gray-300 mb-2">
