@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import ThemeToggle from './ThemeToggle'
+import logo from '../assets/logo.png'
 
 const links = [
   { name: 'Home', to: 'home' },
@@ -36,9 +37,11 @@ function Navbar({ toggleTheme, theme }) {
         {/* Logo + Title */}
         <a href="/" className="flex items-center">
           <img
-            src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png"
+            src={logo}
+            alt="Logo"
+            className="h-11 w-11 mr-4 rounded-full"
             
-            className="w-8 h-8 mr-2"
+        
           />
           <span className="text-xl font-bold text-gray-800 dark:text-gray-100">
             
