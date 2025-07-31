@@ -39,7 +39,7 @@ function Education() {
             </h3>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
               Jai Parkash Mukand Lal Innovative Engineering and Technology Institute, <br />
-              affiliated to Kurukshetra University
+              Affiliated to Kurukshetra University
             </p>
             <p className="mt-3 text-lg text-green-600 dark:text-green-400 font-medium">
               2022–2026 | Pursuing
