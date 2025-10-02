@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaMedal, FaTrophy, FaGlobe, FaLaptopCode } from 'react-icons/fa';
 
 import hackvisionvaultImg from '../assets/hackvisionvault.jpg';
@@ -51,8 +51,114 @@ const hackathons = [
 ];
 
 const HackathonAchievements = () => {
+  const containerRef = useRef(null); // the scroll container
+  const trackRef = useRef(null); // flex track containing cards
+  const autoIdRef = useRef(null);
+  const stepRef = useRef(0); // card width + gap
+  const pausedRef = useRef(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Keep pausedRef in sync
+  useEffect(() => {
+    pausedRef.current = isPaused;
+  }, [isPaused]);
+
+  // compute step (card width + gap)
+  const computeStep = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const firstCard = track.querySelector('[data-card]');
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.getBoundingClientRect().width;
+
+    // read computed gap (could be "16px" or "1rem" etc) and parse numeric px value
+    const gapStyle = getComputedStyle(track).gap || getComputedStyle(track).columnGap || '0px';
+    // parseFloat will parse numeric part; if it's in rem/em it will produce NaN so we fallback to 16
+    let gap = parseFloat(gapStyle);
+    if (Number.isNaN(gap)) gap = 16;
+
+    stepRef.current = Math.round(cardWidth + gap);
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const track = trackRef.current;
+    if (!container || !track) return;
+
+    // initial compute
+    computeStep();
+
+    // recompute on resize
+    const onResize = () => computeStep();
+    window.addEventListener('resize', onResize);
+
+    // touch handlers for mobile pause
+    const onTouchStart = () => setIsPaused(true);
+    const onTouchEnd = () => setIsPaused(false);
+
+    container.addEventListener('touchstart', onTouchStart, { passive: true });
+    container.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    // clean up
+    return () => {
+      window.removeEventListener('resize', onResize);
+      container.removeEventListener('touchstart', onTouchStart);
+      container.removeEventListener('touchend', onTouchEnd);
+    };
+  }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // config: delay between automatic scrolls (ms)
+    const delayMs = 3000; // change to make faster/slower
+    // safety: ensure step computed
+    if (!stepRef.current) computeStep();
+
+    // clear any previous interval
+    if (autoIdRef.current) {
+      clearInterval(autoIdRef.current);
+    }
+
+    autoIdRef.current = setInterval(() => {
+      if (pausedRef.current) return;
+
+      // If at (or very near) the end, wrap to start
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
+        // smooth back to beginning
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        // scroll by one card width + gap
+        container.scrollBy({ left: stepRef.current, behavior: 'smooth' });
+      }
+    }, delayMs);
+
+    // cleanup on unmount
+    return () => {
+      if (autoIdRef.current) {
+        clearInterval(autoIdRef.current);
+        autoIdRef.current = null;
+      }
+    };
+    // we intentionally omit stepRef from deps; computeStep() runs on resize to update it
+  }, []); // run once
+
   return (
     <section id="achievements" className="bg-white dark:bg-gray-900 py-16 px-6 sm:px-12 lg:px-24">
+      {/* Inject small CSS to hide scrollbars while keeping scroll behavior */}
+      <style>{`
+        /* hide scrollbar while preserving scroll (works across browsers) */
+        #achievements .no-scrollbar {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+        #achievements .no-scrollbar::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Opera */
+        }
+      `}</style>
+
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white">
           🏆 Hackathon Achievements
@@ -62,11 +168,23 @@ const HackathonAchievements = () => {
         </p>
       </div>
 
-      <div className="overflow-x-auto">
-        <div className="flex gap-4 sm:gap-6 w-max px-2 sm:px-4 py-4 scroll-smooth">
+      {/* scroll container (hidden scrollbars) */}
+      <div
+        id="achievements-scroll"
+        ref={containerRef}
+        className="overflow-x-auto no-scrollbar"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        // keep focusable if you want to add keyboard controls later
+      >
+        <div
+          ref={trackRef}
+          className="flex gap-4 sm:gap-6 w-max px-2 sm:px-4 py-4 scroll-smooth"
+        >
           {hackathons.map((hack, idx) => (
             <div
               key={idx}
+              data-card="card" /* used by JS to compute width */
               className="w-[85vw] sm:w-[38vw] lg:w-[30vw] min-h-[520px] flex-shrink-0 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
             >
               <div className="flex flex-col">
@@ -86,7 +204,7 @@ const HackathonAchievements = () => {
                   <p
                     className="text-sm leading-snug text-gray-700 dark:text-gray-300 text-justify"
                     dangerouslySetInnerHTML={{ __html: hack.description }}
-                  ></p>
+                  />
                 </div>
               </div>
             </div>
